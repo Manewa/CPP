@@ -1,22 +1,30 @@
 #include <ostream>
 #include <iostream>
 
+void	EofEnding(phonebook book)
+{
+	std::cout << "Enf of File detected." << std::endl;
+	return (0);
+}
+
 int	main(void)
 {
-	int	exit = 0;
+	phonebook	book;
 	std::string	buff;
 
 	std::cout << "Hey you ! You can either ADD, SEARCH or EXIT :" << std::endl;
 
-	while (exit == 0)
+	while (1)
 	{
 		std::cin >> buff;
 		if (buff == "ADD")
-			phonebook::Add;
+			phonebook::Add(book);
 		else if (buff == "SEARCH")
-			std::cout << "You said SEARCH !" << std::endl;
+			phonebook::Search(book);
 		else if (buff == "EXIT")
-			exit = 1;
+			return (std::Ex(book));
+		else
+			std::cout << "That's not a valid input !" << std::endl;
 	}
 	return (0);
 }
