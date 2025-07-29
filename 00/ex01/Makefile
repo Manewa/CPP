@@ -1,5 +1,6 @@
 NAME := phonebook
-SRC_FILES := phonebook.cpp
+SRC_FILES := main.cpp phonebook.cpp contacts.cpp
+DEPS = phonebook.class.hpp contacts.class.hpp
 OBJ_FILES := $(patsubst %.cpp, obj/%.o, $(SRC_FILES))
 CXX := c++
 CXXFLAGS := -std=c++98 -Wall -Werror -Wextra
@@ -11,7 +12,7 @@ $(NAME): $(OBJ_FILES)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 	@printf "$(GREEN)$(NAME) compiled !$(NEUTRAL)\n"
 
-obj/%.o: %.cpp
+obj/%.o: %.cpp $(DEPS) 
 	@mkdir -p obj
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 	@printf "Object file$(YELLOW) %s$(NEUTRAL) created !\n" $@

@@ -2,6 +2,9 @@
 #include <iostream>
 #include <iomanip>
 #include <limits> 
+#include <cstdlib>
+#include <sstream>
+#include <cstdio>
 
 phonebook::phonebook(void) : _Iterator(0) {}
 phonebook::~phonebook(void) {}
@@ -91,10 +94,19 @@ void	phonebook::Search(void)
 		std::cout << "Invalid input, not a number !" << std::endl;
 		return ;
 	}
-	index = std::stoi(input);
+//
+//
+//
+//
+// MISS input is a string TO index, int (stoi do not exist in 98)
+//
+//
+//
+//
 	if (index < 0 || index > max - 1)
 	{
 		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		std::cout << "Invalid Index !" << std::endl;
 		return ;
 	}
