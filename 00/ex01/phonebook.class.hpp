@@ -1,6 +1,8 @@
 #ifndef PHONEBOOK_CLASS_H
 # define PHONEBOOK_CLASS_H
 
+#include "contacts.class.hpp"
+
 class phonebook {
 
 public:
@@ -8,9 +10,9 @@ public:
 	phonebook(void);
 	~phonebook(void);
 
-	Add(void);
-	Search(void);
-	Ex(void);
+	void	Add(void);
+	void	Search(void);
+	void	Ex(void);
 
 private:
 

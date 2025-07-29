@@ -1,6 +1,8 @@
 #ifndef CONTACTS_CLASS_H
 # define CONTACTS_CLASS_H
 
+#include <string>
+
 class contacts	{
 
 	public:
@@ -14,11 +16,11 @@ class contacts	{
 	std::string	getPhoneNumber(void) const;
 	std::string	getSecret(void) const;
 
-		std::string	setFirstName(std::string const &buffer);
-		std::string	setLastName(std::string const &buffer);
-		std::string	setNickname(std::string const &buffer);
-		std::string	setPhoneNumber(std::string const &buffer);
-		std::string	setSecret(std::string const &buffer);
+		void	setFirstName(std::string const &buffer);
+		void	setLastName(std::string const &buffer);
+		void	setNickname(std::string const &buffer);
+		void	setPhoneNumber(std::string const &buffer);
+		void	setSecret(std::string const &buffer);
 
 	private:
 
