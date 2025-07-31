@@ -87,13 +87,14 @@ void	phonebook::Search(void)
 
 
 	std::cout << "Enter the index of the contact to display: ";
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	std::getline(std::cin, input);
+	std::getline(std::cin, input);	
 	if (!isnumber(input))
 	{
 		std::cout << "Invalid input, not a number !" << std::endl;
 		return ;
 	}
+	std::istringstream iss(input);
+	iss >> index;
 //
 //
 //
@@ -106,7 +107,6 @@ void	phonebook::Search(void)
 	if (index < 0 || index > max - 1)
 	{
 		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		std::cout << "Invalid Index !" << std::endl;
 		return ;
 	}
