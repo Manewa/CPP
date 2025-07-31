@@ -1,7 +1,7 @@
 #ifndef ZOMBIE_HPP
 # define ZOMBIE_HPP
 
-class zombie {
+class Zombie {
 
 public :
 
@@ -11,4 +11,6 @@ private :
 	std::string	name;
 	void announce(void);
 
-}
+} ;
+
+#endif
