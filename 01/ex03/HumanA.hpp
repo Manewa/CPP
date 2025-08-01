@@ -3,6 +3,7 @@
 
 # include <string>
 # include <iostream>
+# include "Weapon.hpp"
 
 class HumanA {
 
@@ -19,10 +20,8 @@ public :
 private :
 
 	std::string	_name;
+	Weapon		weapon;
 
-} ;
+};
 
 #endif
-
-HumanA class :
-
