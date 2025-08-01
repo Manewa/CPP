@@ -8,7 +8,7 @@ Zombie::Zombie(void)
 	std::cout << "Zombie constructor called: " << Zombie::getName() << std::endl;
 }
 
-Zombie::Zombie(const char *name)
+Zombie::Zombie(std::string name)
 {
 	Zombie::setName(name);
 	std::cout << "Zombie constructor called: " << Zombie::getName() << std::endl;
@@ -27,3 +27,11 @@ std::string	Zombie::getName( void ) const { return name; }
 
 void	Zombie::announce( void ) 
 { std::cout << Zombie::getName() << ": BraiiiiiiinnnzzzZ..." << std::endl; }
+
+Zombie	*newZombie(std::string name)
+{
+	Zombie	*heapZombie = new Zombie;
+
+	heapZombie->Zombie::setName(name);
+	return (heapZombie);
+}

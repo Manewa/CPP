@@ -3,10 +3,13 @@
 
 int main (void)
 {
-	std::string	*name;
-	zombie	zomb;
+	Zombie	*constructor = new Zombie("Jeanne la Constructrice");
+	constructor->announce();
+	delete(constructor);
+	Zombie	*zomb = newZombie("Jean");
+	zomb->announce();
+	delete(zomb);
 
-	name << "foo";
-	zomb.Zombie::setName(name);
-	std::cout << zomb.Zombie::getName << std::endl;
+	randomChump("Pouet");
+	return (0);
 }

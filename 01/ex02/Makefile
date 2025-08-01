@@ -1,6 +1,6 @@
 NAME := zombie
-SRC_FILES := main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
-DEPS = Zombie.hpp
+SRC_FILES := main.cpp 
+DEPS = 
 OBJ_FILES := $(patsubst %.cpp, obj/%.o, $(SRC_FILES))
 CXX := c++
 CXXFLAGS := -std=c++98 -Wall -Werror -Wextra

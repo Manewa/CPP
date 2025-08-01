@@ -1,5 +1,5 @@
 NAME := zombie
-SRC_FILES := main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRC_FILES := main.cpp Zombie.cpp zombieHorde.cpp 
 DEPS = Zombie.hpp
 OBJ_FILES := $(patsubst %.cpp, obj/%.o, $(SRC_FILES))
 CXX := c++

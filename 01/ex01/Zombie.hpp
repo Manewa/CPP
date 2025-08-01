@@ -9,7 +9,7 @@ class Zombie {
 public :
 
 	Zombie(void);
-	Zombie(const char *name);
+	Zombie(std::string name);
 	~Zombie(void);
 
 	std::string	getName(void) const;
@@ -22,7 +22,8 @@ private :
 
 } ;
 
-Zombie	*newZombie(std::string name);
-void	randomChump(std::string name);
+Zombie	*zombieHorde(int n, std::string name);
+void	call_horde(Zombie *zombieHorde, int n);
+void	die_horde(Zombie *zombieHorde);
 
 #endif

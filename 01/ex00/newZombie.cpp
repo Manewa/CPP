@@ -1,10 +1,10 @@
-#include <string>
 #include "Zombie.hpp"
+#include <string>
 
 Zombie	*newZombie(std::string name)
 {
-	Zombie	*heapZombie;
+	Zombie	*heapZombie = new Zombie;
 
-	headZombie->Zombie::setName(name);
+	heapZombie->Zombie::setName(name);
 	return (heapZombie);
 }

@@ -1,10 +1,10 @@
-#include <string>
 #include "Zombie.hpp"
+#include <string>
 
 void	randomChump(std::string name)
 {
 	Zombie	stackZomb;
-
-	stackZomb.Zombie::steName(name);
+	
+	stackZomb.setName(name);
 	stackZomb.Zombie::announce();
 }
