@@ -1,5 +1,5 @@
-#ifndef	HUMAN_HPP
-# define HUMAN_HPP
+#ifndef	HUMAN_A_HPP
+# define HUMAN_A_HPP
 
 # include <string>
 # include <iostream>
@@ -9,18 +9,15 @@ class HumanA {
 
 public :
 
-	HumanA(void);
+	HumanA(std::string name, Weapon &weap);
 	~HumanA(void);
 
-	std::string	&getType(void) const;
-	void		setType(std::string);
-	std::string	getName(void) const;
-	void		setName(std::string);
+	void		attack(void) const;
 
 private :
 
 	std::string	_name;
-	Weapon		weapon;
+	Weapon		&_weap;
 
 };
 

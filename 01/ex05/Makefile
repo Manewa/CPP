@@ -1,5 +1,5 @@
-NAME := attack
-SRC_FILES := main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
+NAME := zombie
+SRC_FILES := main.cpp Harl.cpp
 DEPS = 
 OBJ_FILES := $(patsubst %.cpp, obj/%.o, $(SRC_FILES))
 CXX := c++
