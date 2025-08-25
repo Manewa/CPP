@@ -1,4 +1,4 @@
-NAME := zombie
+NAME := zombiehorde
 SRC_FILES := main.cpp Zombie.cpp zombieHorde.cpp 
 DEPS = Zombie.hpp
 OBJ_FILES := $(patsubst %.cpp, obj/%.o, $(SRC_FILES))

@@ -1,5 +1,5 @@
-NAME := Harl
-SRC_FILES := main.cpp Harl.cpp
+NAME := my_sed
+SRC_FILES := main.cpp
 DEPS = 
 OBJ_FILES := $(patsubst %.cpp, obj/%.o, $(SRC_FILES))
 CXX := c++

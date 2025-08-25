@@ -1,28 +1,43 @@
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap(void)
+{
+	this->_name = "Default name";
+	this->_HitPoints = 10;
+	this->_EnergyPoints = 10;
+	this->_AttackDamage = 0;
+	std::cout << "ClapTrap Constructor called for " << this->_name << std::endl;
+}
+
 ClapTrap::ClapTrap(std::string name)
 {
 	this->_name = name;
 	this->_HitPoints = 10;
 	this->_EnergyPoints = 10;
 	this->_AttackDamage = 0;
+	std::cout << "ClapTrap Constructor called for " << name << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
 	*this = other;
+	std::cout << "ClapTrap Copy called" << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap& other)
 {
+	std::cout << "Copy assignement operator called" << std::endl;
 	if (this != &other) 
 	{
-		std::cout << "Copy assignement operator called" << std::endl;
+		this->_name = other._name;
+		this->_AttackDamage = other._AttackDamage;
+		this->_EnergyPoints = other._EnergyPoints;
+		this->_HitPoints = other._HitPoints;
 	}
     return *this;
 }
 
-ClapTrap::~ClapTrap() {};
+ClapTrap::~ClapTrap() {std::cout << "ClapTrap Destructor called for " << this->_name << std::endl;};
 
 std::string	ClapTrap::getName(void) { return (this->_name); }
 int	ClapTrap::getDamage(void) 		{ return (this->_AttackDamage); }

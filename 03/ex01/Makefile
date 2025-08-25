@@ -1,9 +1,9 @@
-NAME := Harl
-SRC_FILES := main.cpp Harl.cpp
+NAME := Borderlands
+SRC_FILES := main.cpp ClapTrap.cpp ScavTrap.cpp
 DEPS = 
 OBJ_FILES := $(patsubst %.cpp, obj/%.o, $(SRC_FILES))
 CXX := c++
-CXXFLAGS := -std=c++98 -Wall -Werror -Wextra
+CXXFLAGS := -std=c++98 -Wall -Werror -Wextra -g3
 
 all: $(NAME)
 

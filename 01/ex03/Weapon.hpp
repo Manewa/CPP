@@ -8,7 +8,7 @@ class Weapon {
 
 public :
 
-	Weapon(std::string typ);
+	Weapon(std::string type);
 	~Weapon(void);
 
 	std::string	const& getType(void) const;

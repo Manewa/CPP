@@ -14,6 +14,7 @@ void	replace_line(std::string &line, char **av)
 		{
 			line.erase(i, strlen(av[2]));
 			line.insert(i, av[3]);
+			i += strlen(av[3]);
 		}
 	}
 }
@@ -32,27 +33,26 @@ void	fill_file(std::ifstream &infile, std::ofstream &outfile, char **av)
 
 int	main(int argc, char **argv)
 {
-	std::ifstream	infile(argv [1]);
-	std::ofstream	outfile((std::string(argv[1]) + ".replace").c_str());
-
 	if (argc != 4)
 	{
-		std::perror("Error\nNot exactly three arguments\n");
+		std::cerr << "Error\nNot exactly three arguments\n";
 		return (1);
 	}
+	std::ifstream	infile(argv [1]);
+	std::ofstream	outfile((std::string(argv[1]) + ".replace").c_str());
 	if (!infile.is_open())
 	{
-		std::perror("Error\nCan not open infile\n");
+		std::cerr << "Error\nCan not open infile\n";
 		return (1);
 	}
 	if (!outfile.is_open())
 	{
-		std::perror("Error\nCan not open outfile\n");
+		std::cerr << "Error\nCan not open outfile\n";
 		return (1);
 	}
 	if (strlen(argv[2]) == 0)
 	{
-		std::perror("Error\nFirst string is empty\n");
+		std::cerr << "Error\nFirst string is empty\n";
 			return (1);
 	}
 	fill_file(infile, outfile, argv);
