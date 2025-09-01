@@ -1,4 +1,4 @@
-NAME := zombie
+NAME := Fixed 
 SRC_FILES := main.cpp Fixed.cpp
 DEPS = 
 OBJ_FILES := $(patsubst %.cpp, obj/%.o, $(SRC_FILES))
