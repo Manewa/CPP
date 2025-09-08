@@ -81,6 +81,13 @@ void	ClapTrap::takeDamage(unsigned int amount)
 }
 void	ClapTrap::beRepaired(unsigned int amount)
 {
+	long	check = (long)amount + this->_EnergyPoints;
+
+	if (check > UINT_MAX)
+	{
+		std::cout << "Unsigned int overflow !" << std::endl;
+		return ;
+	}
 	if (this->_HitPoints == 0)
 	{
 		std::cout << this->_name << " is out of combat and can not be repaired !" << std::endl;

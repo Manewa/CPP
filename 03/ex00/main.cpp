@@ -6,6 +6,7 @@ int main (void)
 	ClapTrap	Clapo("Clapo");
 
 	Clapi.attack(Clapo.getName());
+	Clapi.beRepaired(UINT_MAX);
 	Clapo.takeDamage(Clapi.getDamage());
 	Clapi.beRepaired(10);
 	Clapi.attack(Clapo.getName());

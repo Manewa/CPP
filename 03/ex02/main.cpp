@@ -27,8 +27,9 @@ int main (void)
 
 	std::cout << std::endl;
 	std::cout << std::endl;
-	
 
+
+	Froggy.attack(Scapin.getName());
 	Froggy.highFivesGuys();
 	Scapin.attack(Froggy.getName());
 	Froggy.takeDamage(Scapin.getDamage());

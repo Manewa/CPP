@@ -1,5 +1,13 @@
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap()
+{
+	this->_name = "Default name";
+	this->_HitPoints = 10;
+	this->_EnergyPoints = 10;
+	this->_AttackDamage = 0;
+}
+
 ClapTrap::ClapTrap(std::string name)
 {
 	this->_name = name;
@@ -17,6 +25,10 @@ ClapTrap &ClapTrap::operator=(const ClapTrap& other)
 {
 	if (this != &other) 
 	{
+		this->_name = other._name;
+		this->_HitPoints = other._HitPoints;
+		this->_EnergyPoints = other._EnergyPoints;
+		this->_AttackDamage = other._AttackDamage;
 		std::cout << "Copy assignement operator called" << std::endl;
 	}
     return *this;
@@ -66,6 +78,13 @@ void	ClapTrap::takeDamage(unsigned int amount)
 }
 void	ClapTrap::beRepaired(unsigned int amount)
 {
+	long	check = (long)amount + this->_EnergyPoints;
+
+	if (check > UINT_MAX)
+	{
+		std::cout << "Unsigned int overflow !" << std::endl;
+		return ;
+	}
 	if (this->_HitPoints == 0)
 	{
 		std::cout << this->_name << " is out of combat and can not be repaired !" << std::endl;

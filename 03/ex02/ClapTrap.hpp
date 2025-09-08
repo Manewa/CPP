@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <string>
+#include <climits>
+#include <limits.h>
 
 class ClapTrap {
 
