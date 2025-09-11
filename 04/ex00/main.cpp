@@ -30,9 +30,13 @@ int main()
 
 	std::cout << wrongj->getType() << " " << std::endl;
 	std::cout << wrongi->getType() << " " << std::endl;
-	wrongi->makeSound(); //will output the cat sound!
+	wrongi->makeSound();
 	wrongj->makeSound();
 	wrongmeta->makeSound();
+
+	const WrongCat	badCat; //will output the cat sound!
+	badCat.makeSound();
+
 	delete (wrongj);
 	delete (wrongi);
 	delete (wrongmeta);

@@ -8,9 +8,11 @@
 
 int main()
 {
+	std::srand(time(0));
 	const Animal *ani[MAXIMUM_ANI];
 
-	std::srand(time(0));
+//	Animal test;
+
 	int	i = 0;
 	while(i < MAXIMUM_ANI)
 	{
@@ -38,11 +40,6 @@ int main()
 	std::cout << "\n" << "tmp = testdeep" << std::endl;
 	Dog	tmp = TestDeepCopy;
 	std::cout << "\n\n\n";
-
-	Dog	test(TestDeepCopy);
-	Dog	other;
-	test = other;
-
 	return (0);
 		
 }

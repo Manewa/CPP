@@ -9,8 +9,9 @@ Brain::Brain()
 	};
 	int poolSize = sizeof(ideaPool) / sizeof(ideaPool[0]);
 
+	std::srand(time(0));
 	for (int i = 0; i < 100; i++) {
-		_ideas[i] = ideaPool[std::rand() % poolSize];
+		this->_ideas[i] = ideaPool[std::rand() % poolSize];
 	}
 	std::cout << "Constructor Brain called" << std::endl;
 }
