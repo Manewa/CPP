@@ -33,7 +33,13 @@ Bureaucrat::~Bureaucrat() { std::cout << "Destructor called for " << this->_name
 
 
 void	Bureaucrat::GradeTooHighException()
-{}
-void	GradeTooLowException();
-void	getName();
-void	getGrade();
+{	std::cout << "Grade is too high from " << this->_name << std::endl; }
+
+void	Bureaucrat::GradeTooLowException()
+{	std::cout << "Grade is too low from " << this->_name << std::endl; }
+
+std::string	Bureaucrat::getName()
+{	return (this->_name); }
+
+int	Bureaucrat::getGrade()
+{	return (this->_grade); }

@@ -16,10 +16,10 @@ public:
 
 private:
 
-			void	GradeTooHighException();
-			void	GradeTooLowException();
-			void	getName();
-			void	getGrade();
+			void		GradeTooHighException();
+			void		GradeTooLowException();
+			std::string	getName();
+			int			getGrade();
 			std::string	_name;
 			int			_grade;
 		
