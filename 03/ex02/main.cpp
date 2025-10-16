@@ -29,6 +29,7 @@ int main (void)
 	std::cout << std::endl;
 
 
+	Froggy.beRepaired(UINT_MAX);
 	Froggy.attack(Scapin.getName());
 	Froggy.highFivesGuys();
 	Scapin.attack(Froggy.getName());
