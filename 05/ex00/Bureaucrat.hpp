@@ -15,13 +15,14 @@ public:
 
 
 private:
-
+			void		UpGrade();
+			void		DownGrade();
 			void		GradeTooHighException();
 			void		GradeTooLowException();
-			std::string	getName();
-			int			getGrade();
-			std::string	_name;
-			int			_grade;
+			const std::string	getName();
+			int					getGrade();
+			const std::string	_name;
+			int					_grade;
 		
 };
 

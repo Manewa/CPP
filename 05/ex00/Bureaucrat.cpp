@@ -7,6 +7,10 @@ Bureaucrat::Bureaucrat()
 
 Bureaucrat::Bureaucrat(const std::string name, int grade)
 {
+	if (this->_grade < 1)
+		GradeTooHighException();
+	else if (this->_grade > 150)
+		GradeTooLowException();
 	this->_name = name;
 	this->_grade = grade;
 	std::cout << "Bureaucrat Constructor called for " << this->_name << std::endl;
@@ -38,8 +42,24 @@ void	Bureaucrat::GradeTooHighException()
 void	Bureaucrat::GradeTooLowException()
 {	std::cout << "Grade is too low from " << this->_name << std::endl; }
 
-std::string	Bureaucrat::getName()
+const std::string	Bureaucrat::getName()
 {	return (this->_name); }
 
 int	Bureaucrat::getGrade()
 {	return (this->_grade); }
+
+void		Bureaucrat::UpGrade()
+{
+	if (this->_grade == 1)
+		GradeTooHighException();
+	else
+		this->_grade--;
+}
+
+void		Bureaucrat::DownGrade()
+{
+	if (this->_grade == 150)
+		GradeTooLowException();
+	else
+		this->_grade++;
+}
