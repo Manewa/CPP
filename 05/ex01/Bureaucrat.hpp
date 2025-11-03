@@ -1,9 +1,7 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-#include <iostream>
-#include <exception>
-#include "colors.hpp"
+#include "headers.hpp"
 
 class Bureaucrat {
 
@@ -31,6 +29,7 @@ public:
 			void		DownGrade();
 			const std::string	getName() const;
 			int					getGrade() const;
+//			void		signForm(Form infos);
 
 private:
 			const std::string	_name;

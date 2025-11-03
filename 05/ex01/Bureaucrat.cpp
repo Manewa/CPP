@@ -1,4 +1,4 @@
-#include "Bureaucrat.hpp"
+#include "headers.hpp"
 
 Bureaucrat::Bureaucrat()
 {
@@ -67,3 +67,9 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& infos)
 	os << GREEN << infos.getName() << NEUTRAL << ", bureaucrat grade " << GREEN << infos.getGrade() << NEUTRAL << std::endl;
 	return (os);
 }
+
+/*void	Bureaucrat::signForm(Form infos)
+{
+	if (infos.beSigned(this))
+		std::cout << GREEN <<  this.getName() << " signed the form." << NEUTRAL << std::endl;
+}*/
