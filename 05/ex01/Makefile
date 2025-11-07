@@ -1,5 +1,5 @@
 NAME := Borderlands
-SRC_FILES := main.cpp Bureaucrat.cpp
+SRC_FILES := main.cpp Bureaucrat.cpp Form.cpp
 DEPS = 
 OBJ_FILES := $(patsubst %.cpp, obj/%.o, $(SRC_FILES))
 CXX := c++

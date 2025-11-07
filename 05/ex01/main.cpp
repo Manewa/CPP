@@ -1,38 +1,30 @@
-#include "headers.hpp"
+#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main(void)
 {
+	Bureaucrat	*John41 = 0;
+	Bureaucrat	*John43 = 0;
+	Form		*FourtyTwo = 0;
 	/**** Good one ****/
 
 	try
 	{
-		std::cout << YELLOW << "Try to create a 42 John :" << std::endl << NEUTRAL;
-		Bureaucrat	John("John", 42);
-		std::cout << John;
+		std::cout << YELLOW << "Try to create a 41 John41 :" << std::endl << NEUTRAL;
+		John41 = new Bureaucrat("John41", 41);
+		std::cout << *John41;
 	}
 	catch (std::exception& e)
 	{
 		std::cerr << RED << e.what() << std::endl << NEUTRAL;
 	}
 	std::cout << std::endl;
-	/**** Error in constructor ****/
-
+	
 	try
 	{
-		std::cout<< YELLOW << "Test : 151 JohnTooLow" << std::endl << NEUTRAL;
-		Bureaucrat	JohnTooLow("JohnTooLow", 151);
-		std::cout << JohnTooLow;
-	}
-	catch (std::exception& e)
-	{
-		std::cerr << RED << e.what() << std::endl << NEUTRAL;
-	}
-	std::cout << std::endl;
-	try
-	{
-		std::cout<< YELLOW << "Test : 0 JohnTooHigh" << std::endl << NEUTRAL;
-		Bureaucrat	JohnTooHigh("JohnTooHigh", 0);
-		std::cout << JohnTooHigh;
+		std::cout << YELLOW << "Try to create a 43 John43 :" << std::endl << NEUTRAL;
+		John43 = new Bureaucrat("John43", 43);
+		std::cout << *John43;
 	}
 	catch (std::exception& e)
 	{
@@ -40,30 +32,66 @@ int main(void)
 	}
 	std::cout << std::endl;
 
-	/**** Error in grade modification ****/
+	/*** Create a form ***/
 
 	try
 	{
-		std::cout<< YELLOW << "Test : 150 JohnLowest - 1" << std::endl << NEUTRAL;
-		Bureaucrat	JohnLowest("JohnLowest", 150);
-		std::cout << JohnLowest;
-		JohnLowest.DownGrade();
+		std::cout << YELLOW << "Try to create a FourtyTwo Form : " << std::endl << NEUTRAL;
+		FourtyTwo = new Form("FourtyTwo", 42, 42);
+		std::cout << *FourtyTwo;
 	}
 	catch (std::exception& e)
 	{
 		std::cerr << RED << e.what() << std::endl << NEUTRAL;
 	}
 	std::cout << std::endl;
+
 	try
 	{
-		std::cout<< YELLOW << "Test : 1 JohnHighest + 1" << std::endl << NEUTRAL;
-		Bureaucrat	JohnCEO("JohnCEO", 1);
-		std::cout << JohnCEO;
-		JohnCEO.UpGrade();
+		std::cout << YELLOW << "Try to create a OneFiftyOne Form : " << std::endl << NEUTRAL;
+		Form	OneFiftyOne("OneFiftyOne", 151, 151);
+		std::cout << OneFiftyOne;
 	}
-	catch (std::exception& e)
+	catch (std::exception &e)
+	{	std::cerr << RED << e.what() << std::endl << NEUTRAL; }
+	std::cout << std::endl;
+
+	try
 	{
-		std::cerr << RED << e.what() << std::endl << NEUTRAL;
+		std::cout << YELLOW << "Try to create a Zero Form : " << std::endl << NEUTRAL;
+		Form	Zero("Zero", 0, 0);
+		std::cout << Zero;
 	}
+	catch (std::exception &e)
+		{ std::cerr << RED << e.what() << std::endl << NEUTRAL; }
+	std::cout << std::endl;
+
+	/*** Signed Form ***/
+
+	try
+	{
+		std::cout << YELLOW << "John41 tries to sign a 42 form :" << std::endl << NEUTRAL;
+		John41->signForm(*FourtyTwo);
+	}
+	catch (std::exception &e)
+		{	std::cerr << RED << e.what() << std::endl << NEUTRAL; }
+	std::cout << std::endl;
+	
+	try
+	{
+		std::cout << YELLOW << "John43 tries to sign a 42 form :" << std::endl << NEUTRAL;
+		John43->signForm(*FourtyTwo);
+	}
+	catch (std::exception &e)
+		{	std::cerr << RED << e.what() << std::endl << NEUTRAL; }
+	
+	try
+	{
+		std::cout << YELLOW << "John41 tries to sign a 42 form :" << std::endl << NEUTRAL;
+		John41->signForm(*FourtyTwo);
+	}
+	catch (std::exception &e)
+		{	std::cerr << RED << e.what() << std::endl << NEUTRAL; }
+	std::cout << std::endl;
 	return (0);
 }

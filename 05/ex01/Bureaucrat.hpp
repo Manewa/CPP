@@ -1,7 +1,9 @@
-#ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+#pragma once
 
-#include "headers.hpp"
+#include <iostream>
+#include <exception>
+#include "colors.hpp"
+#include "Form.hpp"
 
 class Bureaucrat {
 
@@ -12,6 +14,12 @@ public:
 			Bureaucrat(const Bureaucrat& other);
 			Bureaucrat& operator=(const Bureaucrat& other);
 			~Bureaucrat();
+
+			void		UpGrade();
+			void		DownGrade();
+			const std::string	getName() const;
+			int					getGrade() const;
+			void		signForm(Form &infos);
 
 	class GradeTooHighException : public std::exception
 	{
@@ -25,12 +33,6 @@ public:
 		const virtual char *what() const throw();
 	};
 
-			void		UpGrade();
-			void		DownGrade();
-			const std::string	getName() const;
-			int					getGrade() const;
-//			void		signForm(Form infos);
-
 private:
 			const std::string	_name;
 			int					_grade;
@@ -38,6 +40,3 @@ private:
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& infos);
-
-#endif
-

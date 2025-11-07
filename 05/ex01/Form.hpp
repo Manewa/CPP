@@ -1,13 +1,16 @@
-#ifndef FORM_HPP
-#define FORM_HPP
+#pragma once
+#include <iostream>
+#include <exception>
+#include "colors.hpp"
 
-#include "headers.hpp"
+class Bureaucrat;
 
 class Form {
 
 public:
 
 			Form();
+			Form(std::string name, int sign, int exec);
 			Form(const Form& other);
 			Form& operator=(const Form& other);
 			~Form();
@@ -24,9 +27,16 @@ public:
 			const virtual char *what() const throw();
 	};
 
-			std::string	getName();
-			int			getGrade();
-			void	beSigned(Bureaucrat infos);
+	class	AlreadySignedException : public std::exception
+	{
+		public:
+			const virtual char *what() const throw();
+	};
+
+		std::string	getName() const;
+		int			getSignGrade() const;
+		int			getExecGrade() const;
+				void	beSigned(const Bureaucrat& infos);
 
 private:
 
@@ -38,7 +48,4 @@ private:
 		
 };
 
-std::ostream& operator<<(std::ostream &os, Form infos);
-
-#endif
-
+std::ostream& operator<<(std::ostream &os, const Form &infos);

@@ -1,4 +1,4 @@
-#include "headers.hpp"
+#include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat()
 {
@@ -31,7 +31,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat& other)
 	return (*this);
 }
 
-Bureaucrat::~Bureaucrat() { std::cout << "Destructor called for " << this->_name << std::endl; };
+Bureaucrat::~Bureaucrat() { std::cout << "Destructor called for " << this->_name << " "; };
 
 
 const char	*Bureaucrat::GradeTooHighException::what() const throw()
@@ -64,12 +64,19 @@ void		Bureaucrat::DownGrade()
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& infos)
 {
-	os << GREEN << infos.getName() << NEUTRAL << ", bureaucrat grade " << GREEN << infos.getGrade() << NEUTRAL << std::endl;
+	os << GREEN << infos.getName() << NEUTRAL << ", bureaucrat grade " << GREEN << infos.getGrade() << NEUTRAL << " ";
 	return (os);
 }
 
-/*void	Bureaucrat::signForm(Form infos)
+void	Bureaucrat::signForm(Form &infos)
 {
-	if (infos.beSigned(this))
-		std::cout << GREEN <<  this.getName() << " signed the form." << NEUTRAL << std::endl;
-}*/
+	try 
+	{ 
+		infos.beSigned(*this);
+		std::cout << GREEN <<  *this << GREEN <<  "signed the form " << infos.getName() <<  NEUTRAL << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << RED << *this << RED <<  "can not sign the form " << infos.getName() << " : " << e.what() << NEUTRAL << std::endl;
+	}
+}
