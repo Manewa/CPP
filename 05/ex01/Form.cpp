@@ -38,7 +38,7 @@ Form	&Form::operator=(const Form& other)
 
 Form::~Form()
 {
-	std::cout << RED << "Destrcutor" << NEUTRAL << "called for " << *this << std::endl;
+	std::cout << "Destrcutor" << " called for " << this->_name << std::endl;
 }
 
 const char	*Form::GradeTooHighException::what() const throw()

@@ -93,5 +93,10 @@ int main(void)
 	catch (std::exception &e)
 		{	std::cerr << RED << e.what() << std::endl << NEUTRAL; }
 	std::cout << std::endl;
+	
+	delete (John41);
+	delete (John43);
+	delete (FourtyTwo);
+
 	return (0);
 }
