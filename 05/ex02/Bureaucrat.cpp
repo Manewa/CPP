@@ -80,3 +80,10 @@ void	Bureaucrat::signForm(Form &infos)
 		std::cout << RED << *this << RED <<  "can not sign the form " << infos.getName() << " : " << e.what() << NEUTRAL << std::endl;
 	}
 }
+
+void	Bureaucrat::executeForm(AForm const & form)
+{
+	std::cout << *this << " attempts to execute " << form << std::endl;
+	AForm.execute(*this);
+}
+

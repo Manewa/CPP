@@ -1,7 +1,9 @@
-#ifndef AFORM_HPP
-#define AFORM_HPP
-
+#pragma once
 #include <iostream>
+#include <exception>
+#include "colors.hpp"
+
+class Bureaucrat;
 
 class AForm {
 
@@ -13,13 +15,48 @@ public:
 			AForm& operator=(const AForm& other);
 			~AForm();
 
-protected:
+	class	GradeTooHighException : public std::exception
+	{
+		public:
+			const virtual char *what() const throw();
+	};
 
-			virtual void concreteClass() const;
+	class	GradeTooLowException : public std::exception
+	{
+		public:
+			const virtual char *what() const throw();
+	};
+
+	class	AlreadySignedException : public std::exception
+	{
+		public:
+			const virtual char *what() const throw();
+	};
+
+	class	NotSignedFormException : public std::exception
+	{
+		public:
+			const virtual char *what() const throw();
+	};
+
+		std::string	getName() const;
+		int			getSignGrade() const;
+		int			getExecGrade() const;
+		void	beSigned(const Bureaucrat& infos);
+		void	execute(Bureaucrat const &executor) const;
+
+protected:
+		
+		virtual void	executeCForm() const;
 
 private:
+
+			const std::string	_name;
+			bool				_signed;
+			const int			_gradeSign;
+			const int			_gradeExe;
 
 		
 };
 
-#endif
+std::ostream& operator<<(std::ostream &os, const Form &infos);
