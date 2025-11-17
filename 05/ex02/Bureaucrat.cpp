@@ -68,7 +68,7 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& infos)
 	return (os);
 }
 
-void	Bureaucrat::signForm(Form &infos)
+void	Bureaucrat::signForm(AForm &infos)
 {
 	try 
 	{ 
@@ -81,9 +81,9 @@ void	Bureaucrat::signForm(Form &infos)
 	}
 }
 
-void	Bureaucrat::executeForm(AForm const & form)
+void	Bureaucrat::executeForm(AForm const & form) const
 {
 	std::cout << *this << " attempts to execute " << form << std::endl;
-	AForm.execute(*this);
+	form.execute(*this);
 }
 

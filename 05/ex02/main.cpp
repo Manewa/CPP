@@ -1,18 +1,23 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main(void)
 {
-	Bureaucrat	*John41 = 0;
-	Bureaucrat	*John43 = 0;
-	Form		*FourtyTwo = 0;
-	/**** Good one ****/
+	Bureaucrat	*Boss = 0;
+	Bureaucrat	*Manager = 0;
+	Bureaucrat	*Employee = 0;
+
+
+	/**** Init Bureaucrat ****/
 
 	try
 	{
-		std::cout << YELLOW << "Try to create a 41 John41 :" << std::endl << NEUTRAL;
-		John41 = new Bureaucrat("John41", 41);
-		std::cout << *John41;
+		std::cout << YELLOW << "Try to create a 1 Boss :" << std::endl << NEUTRAL;
+		Boss = new Bureaucrat("Boss", 1);
+		std::cout << *Boss;
 	}
 	catch (std::exception& e)
 	{
@@ -22,9 +27,21 @@ int main(void)
 	
 	try
 	{
-		std::cout << YELLOW << "Try to create a 43 John43 :" << std::endl << NEUTRAL;
-		John43 = new Bureaucrat("John43", 43);
-		std::cout << *John43;
+		std::cout << YELLOW << "Try to create a 100 Manager :" << std::endl << NEUTRAL;
+		Manager = new Bureaucrat("Manager", 100);
+		std::cout << *Manager;
+	}
+	catch (std::exception& e)
+	{
+		std::cerr << RED << e.what() << std::endl << NEUTRAL;
+	}
+	std::cout << std::endl;
+	
+	try
+	{
+		std::cout << YELLOW << "Try to create a 150 Employee :" << std::endl << NEUTRAL;
+		Employee = new Bureaucrat("Employee", 150);
+		std::cout << *Employee;
 	}
 	catch (std::exception& e)
 	{
@@ -32,46 +49,14 @@ int main(void)
 	}
 	std::cout << std::endl;
 
-	/*** Create a form ***/
+	/*** Shrubbery Creation Form ***/
+
+	ShrubberyCreationForm	Shrub("Shrub");
 
 	try
 	{
-		std::cout << YELLOW << "Try to create a FourtyTwo Form : " << std::endl << NEUTRAL;
-		FourtyTwo = new Form("FourtyTwo", 42, 42);
-		std::cout << *FourtyTwo;
-	}
-	catch (std::exception& e)
-	{
-		std::cerr << RED << e.what() << std::endl << NEUTRAL;
-	}
-	std::cout << std::endl;
-
-	try
-	{
-		std::cout << YELLOW << "Try to create a OneFiftyOne Form : " << std::endl << NEUTRAL;
-		Form	OneFiftyOne("OneFiftyOne", 151, 151);
-		std::cout << OneFiftyOne;
-	}
-	catch (std::exception &e)
-	{	std::cerr << RED << e.what() << std::endl << NEUTRAL; }
-	std::cout << std::endl;
-
-	try
-	{
-		std::cout << YELLOW << "Try to create a Zero Form : " << std::endl << NEUTRAL;
-		Form	Zero("Zero", 0, 0);
-		std::cout << Zero;
-	}
-	catch (std::exception &e)
-		{ std::cerr << RED << e.what() << std::endl << NEUTRAL; }
-	std::cout << std::endl;
-
-	/*** Signed Form ***/
-
-	try
-	{
-		std::cout << YELLOW << "John41 tries to sign a 42 form :" << std::endl << NEUTRAL;
-		John41->signForm(*FourtyTwo);
+		std::cout << YELLOW << "Boss tries to execute Shrubbery form." << std::endl << NEUTRAL;
+		Shrub.execute(*Boss);
 	}
 	catch (std::exception &e)
 		{	std::cerr << RED << e.what() << std::endl << NEUTRAL; }
@@ -79,24 +64,185 @@ int main(void)
 	
 	try
 	{
-		std::cout << YELLOW << "John43 tries to sign a 42 form :" << std::endl << NEUTRAL;
-		John43->signForm(*FourtyTwo);
-	}
-	catch (std::exception &e)
-		{	std::cerr << RED << e.what() << std::endl << NEUTRAL; }
-	
-	try
-	{
-		std::cout << YELLOW << "John41 tries to sign a 42 form :" << std::endl << NEUTRAL;
-		John41->signForm(*FourtyTwo);
+		std::cout << YELLOW << "Employee tries to sign Shrubbery form." << std::endl << NEUTRAL;
+		Shrub.beSigned(*Employee);
 	}
 	catch (std::exception &e)
 		{	std::cerr << RED << e.what() << std::endl << NEUTRAL; }
 	std::cout << std::endl;
 	
-	delete (John41);
-	delete (John43);
-	delete (FourtyTwo);
+	try
+	{
+		std::cout << YELLOW << "Manager tries to sign Shrubbery form." << std::endl << NEUTRAL;
+		Shrub.beSigned(*Manager);
+	}
+	catch (std::exception &e)
+		{	std::cerr << RED << e.what() << std::endl << NEUTRAL; }
+	std::cout << std::endl;
+	
+	try
+	{
+		std::cout << YELLOW << "Boss tries to sign Shrubbery form." << std::endl << NEUTRAL;
+		Shrub.beSigned(*Boss);
+	}
+	catch (std::exception &e)
+		{	std::cerr << RED << e.what() << std::endl << NEUTRAL; }
+	std::cout << std::endl;
+	
+	try
+	{
+		std::cout << YELLOW << "Employee tries to execute Shrubbery form." << std::endl << NEUTRAL;
+		Shrub.execute(*Employee);
+	}
+	catch (std::exception &e)
+		{	std::cerr << RED << e.what() << std::endl << NEUTRAL; }
+	std::cout << std::endl;
 
+	try
+	{
+		std::cout << YELLOW << "Manager tries to execute Shrubbery form." << std::endl << NEUTRAL;
+		Shrub.execute(*Manager);
+	}
+	catch (std::exception &e)
+		{	std::cerr << RED << e.what() << std::endl << NEUTRAL; }
+	std::cout << std::endl;
+
+	try
+	{
+		std::cout << YELLOW << "Boss tries to execute Shrubbery form." << std::endl << NEUTRAL;
+		Shrub.execute(*Boss);
+	}
+	catch (std::exception &e)
+		{	std::cerr << RED << e.what() << std::endl << NEUTRAL; }
+	std::cout << std::endl;
+	
+	/*** Robotomy Request Form ***/
+
+	RobotomyRequestForm	Robot("Robotomy");
+
+	try
+	{
+		std::cout << YELLOW << "Boss tries to execute Robotomy form." << std::endl << NEUTRAL;
+		Robot.execute(*Boss);
+	}
+	catch (std::exception &e)
+		{	std::cerr << RED << e.what() << std::endl << NEUTRAL; }
+	std::cout << std::endl;
+	
+	try
+	{
+		std::cout << YELLOW << "Employee tries to sign Robotomy form." << std::endl << NEUTRAL;
+		Robot.beSigned(*Employee);
+	}
+	catch (std::exception &e)
+		{	std::cerr << RED << e.what() << std::endl << NEUTRAL; }
+	std::cout << std::endl;
+	
+	try
+	{
+		std::cout << YELLOW << "Manager tries to sign Robotomy form." << std::endl << NEUTRAL;
+		Robot.beSigned(*Manager);
+	}
+	catch (std::exception &e)
+		{	std::cerr << RED << e.what() << std::endl << NEUTRAL; }
+	std::cout << std::endl;
+	
+	try
+	{
+		std::cout << YELLOW << "Boss tries to sign Robotomy form." << std::endl << NEUTRAL;
+		Robot.beSigned(*Boss);
+	}
+	catch (std::exception &e)
+		{	std::cerr << RED << e.what() << std::endl << NEUTRAL; }
+	std::cout << std::endl;
+
+	try
+	{
+		std::cout << YELLOW << "Employee tries to execute Robotomy form." << std::endl << NEUTRAL;
+		Robot.execute(*Employee);
+	}
+	catch (std::exception &e)
+		{	std::cerr << RED << e.what() << std::endl << NEUTRAL; }
+	std::cout << std::endl;
+
+	try
+	{
+		std::cout << YELLOW << "Manager tries to execute Robotomy form." << std::endl << NEUTRAL;
+		Robot.execute(*Manager);
+	}
+	catch (std::exception &e)
+		{	std::cerr << RED << e.what() << std::endl << NEUTRAL; }
+	std::cout << std::endl;
+
+	try
+	{
+		std::cout << YELLOW << "Boss tries to execute Robotomy form." << std::endl << NEUTRAL;
+		Robot.execute(*Boss);
+	}
+	catch (std::exception &e)
+		{	std::cerr << RED << e.what() << std::endl << NEUTRAL; }
+	std::cout << std::endl;
+
+	/*** Presidential Pardon Form ***/
+
+	PresidentialPardonForm	Pardon("Sarko");
+
+	try
+	{
+		std::cout << YELLOW << "Boss tries to execute Pardon form." << std::endl << NEUTRAL;
+		Pardon.execute(*Boss);
+	}
+	catch (std::exception &e)
+		{	std::cerr << RED << e.what() << std::endl << NEUTRAL; }
+	std::cout << std::endl;
+
+	try
+	{
+		std::cout << YELLOW << "Employee tries to sign Pardon form." << std::endl << NEUTRAL;
+		Pardon.beSigned(*Employee);
+	}
+	catch (std::exception &e)
+		{	std::cerr << RED << e.what() << std::endl << NEUTRAL; }
+	std::cout << std::endl;
+
+	try
+	{
+		std::cout << YELLOW << "Manager tries to sign Pardon form." << std::endl << NEUTRAL;
+		Pardon.beSigned(*Manager);
+	}
+	catch (std::exception &e)
+		{	std::cerr << RED << e.what() << std::endl << NEUTRAL; }
+	std::cout << std::endl;
+
+	try
+	{
+		std::cout << YELLOW << "Employee tries to execute Pardon form." << std::endl << NEUTRAL;
+		Pardon.execute(*Employee);
+	}
+	catch (std::exception &e)
+		{	std::cerr << RED << e.what() << std::endl << NEUTRAL; }
+	std::cout << std::endl;
+
+	try
+	{
+		std::cout << YELLOW << "Manager tries to execute Pardon form." << std::endl << NEUTRAL;
+		Pardon.execute(*Manager);
+	}
+	catch (std::exception &e)
+		{	std::cerr << RED << e.what() << std::endl << NEUTRAL; }
+	std::cout << std::endl;
+
+	try
+	{
+		std::cout << YELLOW << "Boss tries to sign Pardon form." << std::endl << NEUTRAL;
+		Pardon.beSigned(*Boss);
+	}
+	catch (std::exception &e)
+		{	std::cerr << RED << e.what() << std::endl << NEUTRAL; }
+	std::cout << std::endl;
+
+	delete (Boss);
+	delete (Manager);
+	delete (Employee);
 	return (0);
 }

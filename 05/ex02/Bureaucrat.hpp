@@ -3,7 +3,7 @@
 #include <iostream>
 #include <exception>
 #include "colors.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 class Bureaucrat {
 
@@ -19,7 +19,8 @@ public:
 			void		DownGrade();
 			const std::string	getName() const;
 			int					getGrade() const;
-			void		signForm(Form &infos);
+			void		signForm(AForm &infos);
+			void		executeForm(AForm const & form) const;
 
 	class GradeTooHighException : public std::exception
 	{

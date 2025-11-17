@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <exception>
+#include <fstream>
 #include "colors.hpp"
 
 class Bureaucrat;
@@ -59,4 +60,4 @@ private:
 		
 };
 
-std::ostream& operator<<(std::ostream &os, const Form &infos);
+std::ostream& operator<<(std::ostream &os, const AForm &infos);
