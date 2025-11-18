@@ -1,4 +1,4 @@
-NAME := Borderlands
+NAME := Bureaucrat
 SRC_FILES := main.cpp Bureaucrat.cpp
 DEPS = 
 OBJ_FILES := $(patsubst %.cpp, obj/%.o, $(SRC_FILES))
