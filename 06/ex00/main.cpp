@@ -3,8 +3,8 @@
 
 int main ()
 {
-	std::string	i = "-inf";
-	std::string	c = "+inff";
+	std::string	i = "42.42";
+	std::string	c = "42.";
 	std::string	f = "nan";
 
 	ScalarConverter::convert(c);

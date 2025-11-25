@@ -39,13 +39,13 @@ void	ScalarConverter::convert(std::string conv)
 
 	/***   int   ****/
 	
-	if (d >= INT_MIN && d <= INT_MAX && !std::isnan(d))
-		std::cout << GREEN << "Int is :" << i << NEUTRAL << std::endl;
-	else
-		std::cout << RED << "Not a value for an integer !" << NEUTRAL << std::endl;
+	std::cout << GREEN << "Int is :" << i << NEUTRAL << std::endl;
 	
-
-
-	std::cout << f << std::endl;
+	/***   float   ***/
+	
+	if (f == i)
+		std::cout << "Float is : " << f << ".0f" << std::endl;
+	else
+		std::cout << "Float is : " << f << "f" << std::endl;
 	std::cout << d << std::endl;
 }
