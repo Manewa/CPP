@@ -39,7 +39,7 @@ void	ScalarConverter::convert(std::string conv)
 
 	/***   int   ****/
 	
-	std::cout << GREEN << "Int is :" << i << NEUTRAL << std::endl;
+	std::cout << GREEN << "Int is : " << i << NEUTRAL << std::endl;
 	
 	/***   float   ***/
 	
