@@ -2,20 +2,16 @@
 #define BASE_HPP
 
 #include <iostream>
+#include <cstdlib>
+#include "colors.hpp"
 
 class Base {
 
 public:
-
-			Base();
-			Base(const Base& other);
-			Base& operator=(const Base& other);
-			~Base();
-
+			virtual ~Base();
 
 private:
 
-		
 };
 
 #endif
