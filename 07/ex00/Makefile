@@ -1,5 +1,5 @@
-NAME :=ScalarConverter 
-SRC_FILES := main.cpp Base.cpp 
+NAME := templates
+SRC_FILES := main.cpp
 DEPS = 
 OBJ_FILES := $(patsubst %.cpp, obj/%.o, $(SRC_FILES))
 CXX := c++
