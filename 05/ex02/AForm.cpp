@@ -64,7 +64,10 @@ void	AForm::beSigned(const Bureaucrat& infos)
 	else if (this->_signed == 1)
 		throw AForm::AlreadySignedException();
 	else
+	{
 		this->_signed = 1;
+		std::cout << GREEN << infos.getName() << " signed the form !" << NEUTRAL << std::endl;
+	}
 }
 
 void	AForm::execute(Bureaucrat const &executor) const

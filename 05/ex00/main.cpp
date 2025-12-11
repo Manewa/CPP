@@ -65,5 +65,29 @@ int main(void)
 	{
 		std::cerr << RED << e.what() << std::endl << NEUTRAL;
 	}
+	try
+	{
+		std::cout<< YELLOW << "Test : 42 John + 1" << std::endl << NEUTRAL;
+		Bureaucrat	John("John", 42);
+		std::cout << John;
+		John.UpGrade();
+		std::cout << YELLOW << "After Upgrade : " << John;
+	}
+	catch (std::exception& e)
+	{
+		std::cerr << RED << e.what() << std::endl << NEUTRAL;
+	}
+	try
+	{
+		std::cout<< YELLOW << "Test : 42 John - 1" << std::endl << NEUTRAL;
+		Bureaucrat	John("John", 42);
+		std::cout << John;
+		John.DownGrade();
+		std::cout << YELLOW << "After downgrade : " << John;
+	}
+	catch (std::exception& e)
+	{
+		std::cerr << RED << e.what() << std::endl << NEUTRAL;
+	}
 	return (0);
 }

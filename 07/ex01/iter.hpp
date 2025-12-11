@@ -1,22 +1,13 @@
-#ifndef ITER_HPP
-#define ITER_HPP
+#pragma once
 
 #include <iostream>
+#include "colors.hpp" 
 
-template<typename F> F	f(T arr)
-{
-	arr += 1;
-	return (arr);
-}
-
-template<typename T, typename function>
-void	iter(T *arr, const int length, function f(T arr))
+template<typename T, typename F>
+void	iter(T *arr, const int length, F func)
 {
 	int	i = 0;
 
 	while (i < length)
-		arr[i] = f(arr[i]);
-	return ;
+		func(arr[i++]);
 }
-
-#endif
