@@ -9,14 +9,17 @@ class Array {
 public:
 
 			Array();
-			Array(int n);
+			Array(const int n);
 			Array(const Array& other);
 			Array& operator=(const Array& other);
 			~Array();
 
+			T		&operator[](unsigned int n);
+			const T	&operator[](unsigned int n) const;
 
 private:
 
+			int		size();
 		
 };
 
