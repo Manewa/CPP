@@ -29,10 +29,10 @@ Array<T> &Array<T>::operator=(const Array& other)
 {
 	unsigned int	otherSize = other.size();
 
-	if (this = &other)
+	if (this == &other)
 		return (*this);
 	
-	delete (this->_ptr);
+	delete[] this->_ptr;
 	this->_n = otherSize;
 	this->_ptr = new T[otherSize];
 	for (unsigned int i = 0; i < otherSize; i++)
@@ -41,7 +41,7 @@ Array<T> &Array<T>::operator=(const Array& other)
 }
 
 template<typename T>
-Array<T>::~Array() {	delete (this->_ptr); }
+Array<T>::~Array() {	delete[] this->_ptr; }
 
 template<typename T>
 T		&Array<T>::operator[](unsigned int n)
