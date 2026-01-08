@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <exception>
 #include <limits>
+#include <ctime>
 
 class Span {
 
@@ -32,6 +33,12 @@ public:
 				public :
 					const virtual char* what() const throw();
 			};
+
+		//	Getters
+
+			unsigned int		getCount( void ) const;
+			unsigned int		getValueAt(unsigned int index) const;
+
 private:
 
 			unsigned int 		_maxSize;
@@ -39,6 +46,8 @@ private:
 			std::vector<int>	_store;
 		
 };
+
+std::ostream&	operator<<(std::ostream& o, const Span& rhs);
 
 #endif
 
