@@ -1,4 +1,5 @@
 #include "Span.hpp"
+#include <limits.h>
 
 Span::Span()
 {	
@@ -44,6 +45,8 @@ unsigned int Span::getValueAt(unsigned int i) const
 
 const char *Span::Capacity::what() const throw() {return ("Error: Max capacity reached");}
 const char *Span::NoNumber::what() const throw() {return ("Error: No number stored");}
+const char *Span::ErrorRange::what() const throw() {return ("Error: Wrong range when trying to add multiple numbers");}
+const char *Span::NoSpaceLeftInInventory::what() const throw() {return ("Error: Not enough space in vector left");}
 
 void			Span::addNumber(const int N)
 {
@@ -84,6 +87,26 @@ unsigned int	Span::longestSpan()
 	
 	sort(this->_store.begin(), this->_store.end());
 	return (this->_store.back() - this->_store.front());
+}
+
+void	Span::addMultipleNumbers(unsigned int min_range, unsigned int max_range)
+{
+	if (min_range > max_range)
+		throw ErrorRange();
+
+	unsigned int	add = max_range - min_range + 1;
+
+	if (add + this->_count > this->_maxSize)
+		throw NoSpaceLeftInInventory();
+
+	std::vector<unsigned int>	range;
+	while (min_range <= max_range)
+	{
+		range.push_back(min_range);
+		min_range++;
+	}
+	this->_store.insert(this->_store.end(), range.begin(), range.end());
+	this->_count += add;
 }
 
 std::ostream& operator<<(std::ostream& o, const Span& rhs)

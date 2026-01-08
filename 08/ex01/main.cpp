@@ -61,5 +61,18 @@ int main(void)
 	{
 		std::cerr << RED <<  e.what() << NEUTRAL << std::endl;
 	}
-	
+
+	std::cout << std::endl << YELLOW << "Let's add multiple number in a range" << NEUTRAL << std::endl << std::endl;
+
+	Span	full(55);
+
+	try
+	{
+		full.addMultipleNumbers(0, 54);
+		std::cout << GREEN << full << NEUTRAL << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 }

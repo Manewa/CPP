@@ -7,6 +7,7 @@
 #include <exception>
 #include <limits>
 #include <ctime>
+#include <iterator>
 
 class Span {
 
@@ -19,6 +20,7 @@ public:
 			~Span();
 
 			void			addNumber(int N);
+			void			addMultipleNumbers(unsigned int range, unsigned int add);
 			unsigned int	shortestSpan();
 			unsigned int	longestSpan();
 
@@ -29,6 +31,18 @@ public:
 			};
 
 			class NoNumber : public std::exception
+			{
+				public :
+					const virtual char* what() const throw();
+			};
+
+			class NoSpaceLeftInInventory : public std::exception
+			{
+				public :
+					const virtual char* what() const throw();
+			};
+
+			class ErrorRange : public std::exception
 			{
 				public :
 					const virtual char* what() const throw();
