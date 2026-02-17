@@ -3,14 +3,21 @@
 
 #include <iostream>
 #include <map>
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <cstdlib>
+#include <sstream>
+#include "colors.hpp"
 
 class BitcoinExchange {
 
 public:
 
 			BitcoinExchange();
-			BitcoinExchange(const BitcoinExchange& other);
-			BitcoinExchange& operator=(const BitcoinExchange& other);
+			BitcoinExchange(const std::string filename);
+//			BitcoinExchange(const BitcoinExchange& other);
+//			BitcoinExchange& operator=(const BitcoinExchange& other);
 			~BitcoinExchange();
 
 			void	getMap(void);
