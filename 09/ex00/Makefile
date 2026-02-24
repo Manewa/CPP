@@ -1,5 +1,5 @@
 NAME := btc
-SRC_FILES := main.cpp BitcoinExchange.cpp
+SRC_FILES := main.cpp BitcoinExchange.cpp utils.cpp
 DEPS = 
 OBJ_FILES := $(patsubst %.cpp, obj/%.o, $(SRC_FILES))
 CXX := c++
