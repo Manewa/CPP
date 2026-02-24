@@ -1,5 +1,4 @@
 #include "ScalarConverter.hpp"
-#include "colors.hpp"
 
 ScalarConverter::ScalarConverter(){}
 ScalarConverter::ScalarConverter(const ScalarConverter& other)
@@ -38,8 +37,10 @@ void	ScalarConverter::convert(std::string conv)
 		std::cout << RED << "Not a printable character as a char." << NEUTRAL << std::endl;
 
 	/***   int   ****/
-	
-	std::cout << GREEN << "Int is : " << i << NEUTRAL << std::endl;
+	if (d > INT_MAX || d < INT_MIN || std::isnan(d))
+		std::cout << RED << "This is not an int !" << NEUTRAL << std::endl;
+	else
+		std::cout << GREEN << "Int is : " << i << NEUTRAL << std::endl;
 	
 	/***   float   ***/
 	

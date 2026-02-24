@@ -4,7 +4,10 @@
 #include <iostream>
 #include <cstdlib>
 #include <cctype>
+#include <cmath>
+#include <limits.h>
 #include <cstring>
+#include "colors.hpp"
 
 class ScalarConverter {
 

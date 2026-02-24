@@ -45,7 +45,8 @@ void	identify(Base &p)
 		done = 1;
 	}
 	catch (std::exception &e)
-	{}
+	{
+	}
 	try
 	{
 		B	b = dynamic_cast<B&>(p);
@@ -54,7 +55,8 @@ void	identify(Base &p)
 		done = 1;
 	}
 	catch (std::exception &e)
-	{}
+	{
+	}
 	try
 	{
 		C	c = dynamic_cast<C&>(p);
@@ -63,7 +65,8 @@ void	identify(Base &p)
 		done = 1;
 	}
 	catch (std::exception &e)
-	{}
+	{
+	}
 	if (done == 0)
 		std::cout << RED << "&p : Not a A, B or C type" << NEUTRAL << std::endl;
 }
@@ -71,7 +74,7 @@ void	identify(Base &p)
 int main ()
 {
 	Base	*p;
-	Base	*a = 0;;
+	Base	*a = 0;
 
 	p = generate();
 	identify(p);
