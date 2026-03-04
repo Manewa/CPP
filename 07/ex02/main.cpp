@@ -8,7 +8,7 @@
 
 int main()
 {
-    std::cout << "Empty Array" << std::endl << std::endl;
+    std::cout << YELLOW << "Empty Array" << NEUTRAL << std::endl << std::endl;
     {
         Array<int> a;
         std::cout << "Expected : size = 0" << std::endl;
@@ -28,7 +28,7 @@ int main()
 
 	std::cout << std::endl;
     
-	std::cout << "Deep copy" << std::endl << std::endl;
+	std::cout << YELLOW << "Deep copy" << NEUTRAL << std::endl << std::endl;
     {
         Array<int> a(3);
         a[0] = 1;
@@ -44,7 +44,7 @@ int main()
 
 	std::cout << std::endl;
     
-    std::cout << "Copy constructor" << std::endl << std::endl;
+    std::cout << YELLOW << "Copy constructor" << NEUTRAL << std::endl << std::endl;
     {
         Array<int> a(5);
         Array<int> b(2);
@@ -54,7 +54,7 @@ int main()
         std::cout << "Expected : b.size() = 5" << std::endl;
         std::cout << "Result   : b.size() = " << b.size() << std::endl;
 
-        std::cout << GREEN << "Expected : b[4] OK" << NEUTRAL << std::endl;
+        std::cout << GREEN << "Expected : b[4] can access" << NEUTRAL << std::endl;
         try
         {
             std::cout << GREEN << "Result   : b[4] = " << NEUTRAL << b[4] << std::endl;
@@ -67,7 +67,7 @@ int main()
 
 	std::cout << std::endl;
     
-    std::cout << "auto affectation" << std::endl << std::endl;
+    std::cout << YELLOW << "auto affectation" << NEUTRAL << std::endl << std::endl;
     {
         Array<int> a(3);
         a[0] = 7;
@@ -80,7 +80,7 @@ int main()
 
 	std::cout << std::endl;
     
-    std::cout << "type : std::string" << std::endl << std::endl;
+    std::cout << YELLOW << "type : std::string" << NEUTRAL << std::endl << std::endl;
     {
         Array<std::string> a(2);
         a[0] = "hello";
@@ -95,11 +95,11 @@ int main()
 
 	std::cout << std::endl;
     
-    std::cout << "exceptions in a row" << std::endl << std::endl;
+    std::cout << YELLOW << "exceptions in a row" << NEUTRAL << std::endl << std::endl;
     {
         Array<int> a(1);
 
-        std::cout << YELLOW << "Expected : exceptions without crash at i = 1 and 2" << NEUTRAL << std::endl;
+        std::cout << GREY << "Expected : no crash at i = 0, exceptions at 1 and 2" << NEUTRAL << std::endl;
         for (int i = 0; i < 3; i++)
         {
             try
@@ -116,7 +116,7 @@ int main()
 
 	std::cout << std::endl;
 
-    std::cout << "multiple destruction" << std::endl << std::endl;
+    std::cout << YELLOW << "multiple destruction" << NEUTRAL << std::endl << std::endl;
     {
         std::cout << "expected : no crash" << std::endl;
         {
