@@ -8,7 +8,7 @@ BitcoinExchange::BitcoinExchange(const std::string filename)
 	std::ifstream 	database("data.csv");
 	std::string		line;
 	int				line_nbr = 0;
-	double			date_num;
+	long			date_num;
 	std::string		date;
 	std::string		rate;
 
@@ -25,7 +25,7 @@ BitcoinExchange::BitcoinExchange(const std::string filename)
 		this->check_line(line, line_nbr, ',');
 		std::getline(ss, date, ',');
 		std::getline(ss, rate, '\n');
-		date_num = std::atol(date.c_str());
+		date_num = this->get_date(date, ',');
 		this->_map[date_num] = std::atof(rate.c_str());
 	}
 
@@ -44,15 +44,31 @@ BitcoinExchange::BitcoinExchange(const std::string filename)
 		try
 		{
 			this->check_line(line, line_nbr, '|');
-			std::getline(ssf, search_date, ',');
+			std::getline(ssf, search_date, '|');
 			std::getline(ssf, value, '\n');
 			if (std::atof(value.c_str()) < 0)
 			{
 				std::cerr << "Error: Negative value at " << line_nbr << std::endl;
 				continue;
 			}
-			date_num = std::atol(date.c_str());
+			date_num = this->get_date(search_date, '|');
 
+			std::map<long, float>::iterator it;
+
+			it = this->_map.lower_bound(date_num);
+			if (it == this->_map.end() || it->first != date_num)
+			{
+				if (it == this->_map.begin())
+					throw ExceptionBtc("Error: No earlier date");
+
+				--it;
+			}
+			double rate_db = it->second;
+			double amount = std::atol(value.c_str());
+			
+			if (amount > 2147483647)
+				throw ExceptionBtc("Error: Too large number");
+			std::cout << search_date << " => " << amount << " = " << amount * rate_db << std::endl;
 		}
 		catch (std::exception &e)
 		{
@@ -63,6 +79,20 @@ BitcoinExchange::BitcoinExchange(const std::string filename)
 }
 
 BitcoinExchange::~BitcoinExchange(void) {};
+
+long	BitcoinExchange::get_date(std::string date, char sep)
+{
+	std::istringstream	iss(date);
+	std::string			y, m, d;
+	long				date_ret;
+
+	std::getline(iss, y, '-');
+	std::getline(iss, m, '-');
+	std::getline(iss, d, sep);
+
+	date_ret = std::atol(y.c_str()) * 10000 + std::atol(m.c_str()) * 100 + std::atol(d.c_str());
+	return(date_ret);
+}
 
 void	BitcoinExchange::check_line(std::string line, int line_nbr, char char_sep)
 {
@@ -97,10 +127,16 @@ void	BitcoinExchange::get_date_long(long *year, long *month, long *day, std::str
 	std::getline(iss, m, '-');
 	std::getline(iss, d, sep);
 
-	if (y.size() != 4 || m.size() != 2 || d.size() != 2)
-		throw ExceptionBtc("Error : Bad format in date line " + ft_itostr(line_nbr));
-
+	if (sep == ',')
+	{
+		if (y.size() != 4 || m.size() != 2 || d.size() != 2)
+			throw ExceptionBtc("Error : Bad format in date line " + ft_itostr(line_nbr));
+	}
+	else if (sep == '|')
+	{
+		if (y.size() != 4 || m.size() != 2 || d.size() != 3)
+			throw ExceptionBtc("Error : Bad format in date line " + ft_itostr(line_nbr));
+	}
 	if (std::sscanf(line.c_str(), "%ld-%ld-%ld", year, month, day) != 3)
 		throw ExceptionBtc("Error : Bad format in date line " + ft_itostr(line_nbr));
-
 }

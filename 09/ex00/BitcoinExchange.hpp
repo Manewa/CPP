@@ -25,6 +25,7 @@ public:
 
 
 			void	check_line(std::string line, int line_nbr, char sep);
+			long	get_date(std::string date, char sep);
 			void	get_date_long(long *year, long *month, long *day, std::string line, int line_nbr, char sep);
 			void	getMap(void);
 			void	getFilename(void);
