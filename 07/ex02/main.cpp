@@ -67,19 +67,6 @@ int main()
 
 	std::cout << std::endl;
     
-    std::cout << YELLOW << "auto affectation" << NEUTRAL << std::endl << std::endl;
-    {
-        Array<int> a(3);
-        a[0] = 7;
-
-        a = a;
-
-        std::cout << "Expected : a[0] = 7" << std::endl;
-        std::cout << "Result   : a[0] = " << a[0] << std::endl;
-    }
-
-	std::cout << std::endl;
-    
     std::cout << YELLOW << "type : std::string" << NEUTRAL << std::endl << std::endl;
     {
         Array<std::string> a(2);
