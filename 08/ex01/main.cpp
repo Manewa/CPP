@@ -23,7 +23,7 @@ int main(void)
 		std::cerr << RED <<  e.what() << NEUTRAL << std::endl;
 	}
 
-	std::cout << std::endl << YELLOW << "Try to fill with 10k numbers" << NEUTRAL << std::endl << std::endl;
+	std::cout << std::endl << YELLOW << "Try to fill with 10k numbers (add +1 in TenK for no error)" << NEUTRAL << std::endl << std::endl;
 
 	Span	TenK(10000);
 	size_t	i = 0;

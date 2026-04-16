@@ -12,9 +12,6 @@ BitcoinExchange::BitcoinExchange(const std::string filename)
 	std::string		date;
 	std::string		rate;
 
-	//	if (!file.is_open())
-	//		throw (FILE_OPEN_ERROR);
-
 	while (std::getline(database, line))
 	{
 		std::stringstream	ss(line);

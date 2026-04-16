@@ -13,14 +13,18 @@
 #include <exception>
 #include "colors.hpp"
 
-class BitcoinExchange {
+class BitcoinExchange
+{
 
-public:
+	private:
+
+			std::map<long, float>	_map;
+			std::string				_filename;
+
+	public:
 
 			BitcoinExchange();
 			BitcoinExchange(const std::string filename);
-//			BitcoinExchange(const BitcoinExchange& other);
-//			BitcoinExchange& operator=(const BitcoinExchange& other);
 			~BitcoinExchange();
 
 
@@ -31,10 +35,6 @@ public:
 			void	getFilename(void);
 
 
-private:
-
-			std::map<long, float>	_map;
-			std::string						_filename;
 };
 
 class	ExceptionBtc : public std::exception
