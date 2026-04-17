@@ -12,6 +12,9 @@ BitcoinExchange::BitcoinExchange(const std::string filename)
 	std::string		date;
 	std::string		rate;
 
+	if (!file.is_open())
+		throw ExceptionBtc("Error: can't open file.");
+	
 	while (std::getline(database, line))
 	{
 		std::stringstream	ss(line);

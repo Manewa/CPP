@@ -3,7 +3,7 @@ SRC_FILES := main.cpp RPN.cpp
 DEPS = 
 OBJ_FILES := $(patsubst %.cpp, obj/%.o, $(SRC_FILES))
 CXX := c++
-CXXFLAGS := -std=c++98 -Wall -Werror -Wextra -g3
+CXXFLAGS := -std=c++98 -Wall -Werror -Wextra
 
 all: $(NAME)
 

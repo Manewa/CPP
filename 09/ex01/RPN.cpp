@@ -9,7 +9,7 @@ RPN::RPN(std::string calc)
 
 	while (ss >> token)
 	{
-		if (std::isdigit(token[0]) && token.size() == 1)
+		if (token.size() == 1 && std::isdigit(token[0]))
 			this->_stack.push(token[0] - '0');
 		else if (token == "+" || token == "-" || token ==  "*" || token == "/")
 		{
