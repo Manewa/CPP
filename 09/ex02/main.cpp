@@ -13,7 +13,7 @@ int	parsing_num(char *str)
 
 	if (num < 0)
 		throw std::runtime_error("Error: Negative number");
-	else if (num > 2147683647)
+	else if (num > INT_MAX)
 		throw std::runtime_error("Error: Value too high for an integer");
 	return ((int)num);
 }
@@ -35,12 +35,16 @@ int main(int argc, char **argv)
 	std::vector<int>	vec;
 	std::deque<int>		deq;
 	int					n;
+	std::set<int>		seen;
 	
 	try 
 	{
 		for (int i = 1; i < argc; i++)
 		{
 			n = parsing_num(argv[i]);
+			if (seen.find(n) != seen.end())
+				throw std::runtime_error("Error: Duplicate");
+			seen.insert(n);
 			vec.push_back(n);
 			deq.push_back(n);
 		}
