@@ -14,6 +14,18 @@ bool    is_valid_number(std::string str)
         return true;
 }
 
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &src)
+{
+	*this = src;
+}
+
+BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &rhs)
+{
+	if (this != &rhs)
+		this->_map = rhs._map;
+	return (*this);
+}
+
 BitcoinExchange::BitcoinExchange(void) {};
 
 BitcoinExchange::BitcoinExchange(const std::string filename)

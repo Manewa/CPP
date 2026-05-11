@@ -38,6 +38,18 @@ RPN::RPN(std::string calc)
 	std::cout << this->_stack.top() << std::endl;
 }
 
+RPN::RPN(const RPN &src)
+{
+	*this = src;
+}
+
+RPN &RPN::operator=(const RPN &rhs)
+{
+	if (this != &rhs)
+		this->_stack = rhs._stack;
+	return (*this);
+}
+
 RPN::~RPN() {}
 
 long	RPN::calculate(int a, int b, std::string token)

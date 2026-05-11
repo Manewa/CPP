@@ -25,6 +25,8 @@ class BitcoinExchange
 
 			BitcoinExchange();
 			BitcoinExchange(const std::string filename);
+			BitcoinExchange(const BitcoinExchange &src);
+			BitcoinExchange &operator=(const BitcoinExchange &rhs);
 			~BitcoinExchange();
 
 

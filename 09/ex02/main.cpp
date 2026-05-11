@@ -3,6 +3,9 @@
 int	parsing_num(char *str)
 {
 	std::string s(str);
+	
+	if (s.empty())
+		throw std::runtime_error("Error: empty argument.");
 
 	for (size_t i = 0; i < s.size(); i++)
 	{
@@ -30,7 +33,10 @@ void	print_container(const std::vector<int> &vec)
 int main(int argc, char **argv)
 {
 	if (argc < 2)
+	{
+		std::cout << "Error: Only one argument" << std::endl;
 		return (1);
+	}
 
 	std::vector<int>	vec;
 	std::deque<int>		deq;

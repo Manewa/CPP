@@ -14,6 +14,8 @@ class RPN {
 
 		RPN();
 		RPN(std::string calc);
+		RPN(const RPN &src);
+		RPN &operator=(const RPN &rhs);
 		~RPN();
 
 		long	calculate(int a, int b, std::string token);
