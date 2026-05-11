@@ -5,6 +5,7 @@
 #include <sstream>
 #include <string>
 #include <stack>
+#include <climits>
 #include "colors.hpp"
 
 class RPN {
@@ -19,7 +20,7 @@ class RPN {
 
 	private:
 
-		std::stack<int>	_stack;
+		std::stack<long>	_stack;
 
 };
 

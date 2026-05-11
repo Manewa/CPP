@@ -1,5 +1,19 @@
 #include "BitcoinExchange.hpp"
 
+bool    is_valid_number(std::string str)
+{
+        std::istringstream iss(str);
+        double value;
+        char c;
+
+        iss >> value;
+        if (iss.fail())
+                return false;
+        if (iss >> c)
+                return false;
+        return true;
+}
+
 BitcoinExchange::BitcoinExchange(void) {};
 
 BitcoinExchange::BitcoinExchange(const std::string filename)
@@ -14,7 +28,9 @@ BitcoinExchange::BitcoinExchange(const std::string filename)
 
 	if (!file.is_open())
 		throw ExceptionBtc("Error: can't open file.");
-	
+	if (!database.is_open())
+        throw ExceptionBtc("Error: can't open database.");
+
 	while (std::getline(database, line))
 	{
 		std::stringstream	ss(line);
@@ -64,11 +80,11 @@ BitcoinExchange::BitcoinExchange(const std::string filename)
 				--it;
 			}
 			double rate_db = it->second;
-			double amount = std::atol(value.c_str());
+			double amount = std::atof(value.c_str());
 			
-			if (amount > 2147483647)
+			if (amount > 1000)
 				throw ExceptionBtc("Error: Too large number");
-			std::cout << search_date << " => " << amount << " = " << amount * rate_db << std::endl;
+			std::cout << search_date << "=> " << amount << " = " << amount * rate_db << std::endl;
 		}
 		catch (std::exception &e)
 		{

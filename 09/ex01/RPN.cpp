@@ -9,15 +9,15 @@ RPN::RPN(std::string calc)
 
 	while (ss >> token)
 	{
-		if (token.size() == 1 && std::isdigit(token[0]))
+		if (token.size() == 1 && std::isdigit(static_cast<unsigned char>(token[0])))
 			this->_stack.push(token[0] - '0');
 		else if (token == "+" || token == "-" || token ==  "*" || token == "/")
 		{
 			if (this->_stack.size() < 2)
 				throw	ExceptionRPN("Error: Not 2 number in stack");
 
-			int		a = 0;
-			int 	b = 0;
+			long	a = 0;
+			long	b = 0;
 			long	result = 0;
 
 			b = this->_stack.top();
@@ -26,6 +26,8 @@ RPN::RPN(std::string calc)
 			this->_stack.pop();
 
 			result = calculate(a, b, token);
+			if (result > INT_MAX || result < INT_MIN)
+       			throw ExceptionRPN("Error: overflow");
 			this->_stack.push(result);
 		}
 		else
